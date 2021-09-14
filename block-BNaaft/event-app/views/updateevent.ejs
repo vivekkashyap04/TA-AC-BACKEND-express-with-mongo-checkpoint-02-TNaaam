@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h2>Event</h2>
+      <a href="/event"><button type="submit">List of Event</button></a>
+    </header>
+    <main>
+      <form action="/event" method="POST">
+        <input type="text" placeholder="title of event" name="title" />
+        <input type="text" placeholder="summary" name="summary" />
+        <input type="text" placeholder="host" name="host" />
+        <input type="date" placeholder="start date" name="strat_date" />
+        <input type="date" placeholder="end date" name="end_date" />
+        <input type="text" placeholder="event" name="event_category" />
+        <input type="text" placeholder="location" name="location" />
+        <button type="submit">Add Event</button>
+      </form>
+    </main>
+  </body>
+</html>

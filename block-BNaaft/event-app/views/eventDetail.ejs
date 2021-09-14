@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <h2>Event Details</h2>
+      <div>
+        <h3>EventName:<%= event.title %></h3>
+        <diV>
+          <a href="/event/<%= event.id %>/edit"
+            ><button type="submit">edit</button></a
+          >
+          <a href="/event/<%= event.id %>/delete"
+            ><button type="submit">Delete</button></a
+          >
+          <a href="/event/<%= event.id %>/likes"
+            ><button type="submit">likes<%= event.likes %></button></a
+          >
+        </diV>
+      </div>
+      <div>
+        <form action="/event/<%= event.id %>/remarks" method="POST">
+          <textarea name="title"></textarea>
+          <input type="text" placeholder="author" name="author" />
+          <button type="submit">Add Remarks</button>
+        </form>
+      </div>
+      <h3>Remarks</h3>
+      <ul>
+        <% event.remarks.forEach(remark => { %>
+        <li>
+          <div>
+            <h4>Remarks:<%= remark.title %></h4>
+            <h4>Author:<%=remark.author %></h4>
+          </div>
+          <div>
+            <a href="/remarks/<%= remark.id %>/edit"
+              ><button type="submit">edit</button></a
+            >
+            <a href="/remarks/<%= remark.id %>/delete"
+              ><button type="submit">edit</button></a
+            >
+            <a href="/remarks/<%= remark.id %>/likes"
+              ><button type="submit">likes<%= remark.likes %></button></a
+            >
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+    </main>
+  </body>
+</html>
