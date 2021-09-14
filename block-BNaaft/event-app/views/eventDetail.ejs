@@ -8,11 +8,19 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <header></header>
+    <header>
+      <h2>Event</h2>
+      <a href="/event"><button type="submit">List of Event</button></a>
+    </header>
     <main>
       <h2>Event Details</h2>
       <div class="container">
         <h3>EventName:<%= event.title %></h3>
+        <h3>Summary:<%= event.summary %></h3>
+        <h3>StartDate:<%= event.start_date %></h3>
+        <h3>EndDate:<%= event.end_date %></h3>
+        <h3>Category:<%= event.event_category %></h3>
+        <h3>Location:<%= event.location %></h3>
         <diV>
           <a href="/event/<%= event.id %>/edit"
             ><button type="submit" class="btn2">edit</button></a
