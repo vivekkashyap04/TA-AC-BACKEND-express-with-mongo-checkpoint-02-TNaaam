@@ -20,7 +20,6 @@ router.get('/:id', (req, res, next) => {
     .populate('remarks')
     .exec((err, data) => {
       if (err) return next(err);
-      console.log(data);
       res.render('eventDetail', { event: data });
     });
 });
@@ -36,6 +35,7 @@ router.get('/:id/edit', (req, res, next) => {
   var id = req.params.id;
   Event.findById(id, (err, data) => {
     if (err) return next(err);
+    res.render('updateevent', { event: data });
   });
 });
 
@@ -56,7 +56,15 @@ router.get('/:id/delete', (req, res, next) => {
     });
   });
 });
+//likes
+router.get('/:id/likes', (req, res, next) => {
+  let id = req.params.id;
 
+  Event.findByIdAndUpdate(id, { $inc: { likes: 1 } }, (err, info) => {
+    if (err) return next(err);
+    res.redirect('/event/' + id);
+  });
+});
 //remarks
 router.post('/:id/remarks', (req, res, next) => {
   var id = req.params.id;
