@@ -19,6 +19,26 @@
         <li><a href="/event/<%= event._id %>"><%= event.title%></a></li>
         <% }) %>
       </ul>
+      <h2>List of location</h2>
+      <ul>
+        <% events.forEach(event => { %>
+        <li>
+          <a href="/event/?location=<%= event.location %>"
+            ><%= event.location%></a
+          >
+        </li>
+        <% }) %>
+      </ul>
+      <h2>List of Category</h2>
+      <ul>
+        <% events.forEach(event => { %>
+        <li>
+          <a href="/event/?category=<%= event.event_category %>"
+            ><%= event.event_category%></a
+          >
+        </li>
+        <% }) %>
+      </ul>
     </main>
   </body>
 </html>
