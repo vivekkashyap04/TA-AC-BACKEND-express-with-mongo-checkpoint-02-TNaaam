@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h2>Event</h2>
+      <a href="/event/new"><button type="submit">Add New Event</button></a>
+    </header>
+    <main>
+      <h2>List of Events</h2>
+      <ul>
+        <% events.forEach(event => { %>
+        <li><a href="/event/<%= event._id %>"><%= event.title%></a></li>
+        <% }) %>
+      </ul>
+      <h2>List of location</h2>
+      <ul>
+        <% events.forEach(event => { %>
+        <li>
+          <a href="/event/?location=<%= event.location %>"
+            ><%= event.location%></a
+          >
+        </li>
+        <% }) %>
+      </ul>
+      <h2>List of Category</h2>
+      <ul>
+        <% events.forEach(event => { %>
+        <li>
+          <a href="/event/?category=<%= event.event_category %>"
+            ><%= event.event_category%></a
+          >
+        </li>
+        <% }) %>
+      </ul>
+    </main>
+  </body>
+</html>

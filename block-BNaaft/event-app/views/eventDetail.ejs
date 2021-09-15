@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header>
+      <h2>Event</h2>
+      <a href="/event"><button type="submit">List of Event</button></a>
+    </header>
+    <main>
+      <h2>Event Details</h2>
+      <div class="container">
+        <h3>EventName:<%= event.title %></h3>
+        <h3>Summary:<%= event.summary %></h3>
+        <h3>StartDate:<%= event.start_date %></h3>
+        <h3>EndDate:<%= event.end_date %></h3>
+        <h3>Category:<%= event.event_category %></h3>
+        <h3>Location:<%= event.location %></h3>
+        <diV>
+          <a href="/event/<%= event.id %>/edit"
+            ><button type="submit" class="btn2">edit</button></a
+          >
+          <a href="/event/<%= event.id %>/delete"
+            ><button type="submit" class="btn1">Delete</button></a
+          >
+          <a href="/event/<%= event.id %>/likes"
+            ><button type="submit" class="likes">
+              likes<%= event.likes %>
+            </button></a
+          >
+        </diV>
+      </div>
+      <div class="form1">
+        <form action="/event/<%= event.id %>/remarks" method="POST">
+          <textarea name="title"></textarea>
+          <input type="text" placeholder="author" name="author" />
+          <button type="submit" class="btn3">Add Remarks</button>
+        </form>
+      </div>
+      <h2>Remarks</h2>
+      <ul>
+        <% event.remarks.forEach(remark => { %>
+        <li>
+          <div class="remarks">
+            <h4>Remarks:<%= remark.title %></h4>
+            <h4>Author:<%=remark.author %></h4>
+
+            <div>
+              <a href="/remarks/<%= remark.id %>/edit"
+                ><button type="submit" class="btn2">edit</button></a
+              >
+              <a href="/remarks/<%= remark.id %>/delete"
+                ><button type="submit" class="btn1">delete</button></a
+              >
+              <a href="/remarks/<%= remark.id %>/likes"
+                ><button type="submit" class="likes">
+                  likes<%= remark.likes %>
+                </button></a
+              >
+            </div>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+    </main>
+  </body>
+</html>

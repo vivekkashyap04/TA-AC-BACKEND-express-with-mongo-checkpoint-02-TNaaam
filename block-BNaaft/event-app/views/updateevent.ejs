@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <form action="/event/<%= event._id%>" method="POST">
+        <input
+          type="text"
+          placeholder="title of event"
+          name="title"
+          value="<%= event.title%>"
+        />
+        <input
+          type="text"
+          placeholder="summary"
+          name="summary"
+          value="<%= event.summary%>"
+        />
+        <input
+          type="text"
+          placeholder="host"
+          name="host"
+          value="<%= event.host%>"
+        />
+        <input
+          type="date"
+          placeholder="start date"
+          name="strat_date"
+          value="<%= event.start_date%>"
+        />
+        <input
+          type="date"
+          placeholder="end date"
+          name="end_date"
+          value="<%= event.end_date%>"
+        />
+        <input
+          type="text"
+          placeholder="event"
+          name="event_category"
+          value="<%= event.event_category%>"
+        />
+        <input
+          type="text"
+          placeholder="location"
+          name="location"
+          value="<%= event.location%>"
+        />
+        <button type="submit" class="btn3">Update</button>
+      </form>
+    </main>
+  </body>
+</html>
