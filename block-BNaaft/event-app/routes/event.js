@@ -2,13 +2,20 @@ var express = require('express');
 var router = express.Router();
 var Event = require('../models/event');
 var Remarks = require('../models/remarks');
+var qs = require('querystring');
 
 /* GET users listing. */
 router.get('/new', (req, res, next) => {
   res.render('eventForm');
 });
 router.get('/', function (req, res, next) {
-  Event.find({}, (err, eventList) => {
+  let query = {};
+  if (req.query.location) {
+    query.location = req.query.location;
+  } else if (req.query.category) {
+    query.event_category = req.query.category;
+  }
+  Event.find(query, (err, eventList) => {
     if (err) return next(err);
     res.render('listOfevent', { events: eventList });
   });
